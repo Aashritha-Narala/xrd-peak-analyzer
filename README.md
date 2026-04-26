@@ -1,8 +1,10 @@
 # XRD Peak Analyzer
 
+Built this as my first Python project at NC State. Used synthetic iron XRD data to test it.
+
 **Automated XRD pattern analysis using Bragg's Law - built for materials scientists.**
 
-A Python tool that detects diffraction peaks, calculates d-spacings, fits Gaussian profiles, and generates publication-quality plots. No manual peak picking.
+A Python tool that detects diffraction peaks, calculates d-spacings, fits Gaussian profiles, and generates clean plots. 
 
 ---
 
@@ -11,7 +13,7 @@ A Python tool that detects diffraction peaks, calculates d-spacings, fits Gaussi
 - Detects XRD peaks automatically using scipy signal processing
 - Calculates **d-spacing** for each peak using Bragg's Law: `nλ = 2d·sinθ`
 - Fits **Gaussian profiles** to extract FWHM (crystallite size analysis ready)
-- Generates a **dark-theme publication plot** with peak labels and results table
+- Generates a **dark-theme labeled output plot** with peak labels and results table
 - Exports peak data to CSV
 
 ## Output
@@ -20,7 +22,7 @@ A Python tool that detects diffraction peaks, calculates d-spacings, fits Gaussi
 
 ---
 
-## Tech Stack
+## What I used
 
 - Python 3.x
 - NumPy, Pandas, Matplotlib, SciPy
