@@ -1,6 +1,6 @@
 # XRD Peak Analyzer
 
-Built this as my first Python project at NC State. Used synthetic iron XRD data to test it.
+Built this as my first Python project at NC State. Tested against ICDD reference data for alpha-Fe (BCC). Synthetic pattern generated from known peak positions
 
 **Automated XRD pattern analysis using Bragg's Law - built for materials scientists.**
 
