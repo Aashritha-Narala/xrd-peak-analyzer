@@ -1,7 +1,7 @@
 # XRD Peak Analyzer
 # Author: Aashritha Narala | MS MSE, NC State University
 # Description: Automated XRD peak detection, d-spacing calculation using Bragg's Law,
-#              and publication-quality plot generation for crystal structure analysis.
+#              and clean plot generation for crystal structure analysis.
 
 import numpy as np
 import pandas as pd
@@ -14,10 +14,7 @@ warnings.filterwarnings('ignore')
 
 # Bragg's Law 
 def bragg_d_spacing(two_theta_deg, wavelength=1.5406):
-    """
-    Calculate d-spacing using Bragg's Law: nλ = 2d·sin(θ)
-    Default wavelength: Cu Kα = 1.5406 Å
-    """
+# Bragg's law, Cu Ka wavelength is 1.5406 angstroms by default
     theta_rad = np.radians(two_theta_deg / 2)
     return wavelength / (2 * np.sin(theta_rad))
 
@@ -89,7 +86,7 @@ def analyze_xrd(two_theta, intensity, wavelength=1.5406,
 
     return pd.DataFrame(results), peaks_idx
 
-#  Publication-quality plot
+#  Clean Plot
 def plot_xrd(two_theta, intensity, df_results, peaks_idx, material='α-Fe (BCC)'):
     fig = plt.figure(figsize=(12, 8), facecolor='#0f1117')
     gs = gridspec.GridSpec(2, 1, height_ratios=[3, 1], hspace=0.08)
