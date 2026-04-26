@@ -12,7 +12,7 @@ from scipy.optimize import curve_fit
 import warnings
 warnings.filterwarnings('ignore')
 
-# ── Bragg's Law ──────────────────────────────────────────────────────────────
+# Bragg's Law 
 def bragg_d_spacing(two_theta_deg, wavelength=1.5406):
     """
     Calculate d-spacing using Bragg's Law: nλ = 2d·sin(θ)
@@ -21,7 +21,7 @@ def bragg_d_spacing(two_theta_deg, wavelength=1.5406):
     theta_rad = np.radians(two_theta_deg / 2)
     return wavelength / (2 * np.sin(theta_rad))
 
-# ── Gaussian fit for peak profiling ─────────────────────────────────────────
+# Gaussian fit for peak profiling
 def gaussian(x, amp, center, sigma):
     return amp * np.exp(-((x - center) ** 2) / (2 * sigma ** 2))
 
@@ -37,7 +37,7 @@ def fit_peak(two_theta, intensity, peak_idx, window=1.5):
     except Exception:
         return None
 
-# ── Generate synthetic XRD data (Iron BCC α-Fe) ─────────────────────────────
+# Generate synthetic XRD data (Iron BCC α-Fe)
 def generate_iron_xrd(noise_level=0.03):
     """
     Simulates α-Fe (BCC) XRD pattern with Cu Kα radiation.
@@ -62,7 +62,7 @@ def generate_iron_xrd(noise_level=0.03):
     intensity = intensity + background + np.abs(noise)
     return two_theta, intensity / intensity.max()
 
-# ── Main Analyzer ─────────────────────────────────────────────────────────────
+#  Main Analyzer 
 def analyze_xrd(two_theta, intensity, wavelength=1.5406,
                 height_threshold=0.25, prominence=0.20):
 
@@ -89,12 +89,12 @@ def analyze_xrd(two_theta, intensity, wavelength=1.5406,
 
     return pd.DataFrame(results), peaks_idx
 
-# ── Publication-quality plot ──────────────────────────────────────────────────
+#  Publication-quality plot
 def plot_xrd(two_theta, intensity, df_results, peaks_idx, material='α-Fe (BCC)'):
     fig = plt.figure(figsize=(12, 8), facecolor='#0f1117')
     gs = gridspec.GridSpec(2, 1, height_ratios=[3, 1], hspace=0.08)
 
-    # ── Main XRD pattern ──
+    # Main XRD pattern 
     ax1 = fig.add_subplot(gs[0])
     ax1.set_facecolor('#0f1117')
 
@@ -129,7 +129,7 @@ def plot_xrd(two_theta, intensity, df_results, peaks_idx, material='α-Fe (BCC)'
     ax1.legend(facecolor='#1a1a2e', edgecolor='#333333', labelcolor='white', fontsize=9)
     ax1.grid(axis='x', color='#222222', linestyle=':', linewidth=0.5)
 
-    # ── Results table ──
+    #  Results table 
     ax2 = fig.add_subplot(gs[1])
     ax2.set_facecolor('#0f1117')
     ax2.set_axis_off()
@@ -164,7 +164,7 @@ def plot_xrd(two_theta, intensity, df_results, peaks_idx, material='α-Fe (BCC)'
     print("Saved: xrd_analysis_output.png and .pdf")
     plt.show()
 
-# ── Run ───────────────────────────────────────────────────────────────────────
+#  Run 
 if __name__ == "__main__":
     print("Generating α-Fe XRD pattern...")
     two_theta, intensity = generate_iron_xrd(noise_level=0.025)
