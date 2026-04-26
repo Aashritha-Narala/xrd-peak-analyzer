@@ -1,6 +1,6 @@
 # XRD Peak Analyzer
 
-**Automated XRD pattern analysis using Bragg's Law — built for materials scientists.**
+**Automated XRD pattern analysis using Bragg's Law - built for materials scientists.**
 
 A Python tool that detects diffraction peaks, calculates d-spacings, fits Gaussian profiles, and generates publication-quality plots. No manual peak picking.
 
